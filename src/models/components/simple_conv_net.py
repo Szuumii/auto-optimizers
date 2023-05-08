@@ -16,14 +16,10 @@ class SimpleConvNet(nn.Module):
             nn.Conv2d(3, conv1_channels, kernel_size=3, stride=1, padding=1),
             nn.ReLU(inplace=True),
             nn.BatchNorm2d(conv1_channels),
-            nn.Conv2d(
-                conv1_channels, conv2_channels, kernel_size=3, stride=1, padding=1
-            ),
+            nn.Conv2d(conv1_channels, conv2_channels, kernel_size=3, stride=1, padding=1),
             nn.ReLU(inplace=True),
             nn.BatchNorm2d(conv2_channels),
-            nn.Conv2d(
-                conv2_channels, conv3_channels, kernel_size=3, stride=1, padding=1
-            ),
+            nn.Conv2d(conv2_channels, conv3_channels, kernel_size=3, stride=1, padding=1),
             nn.ReLU(inplace=True),
             nn.BatchNorm2d(conv3_channels),
             nn.MaxPool2d(kernel_size=2, stride=2),
