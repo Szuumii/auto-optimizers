@@ -1,0 +1,22 @@
+_target_: src.models.cifar_module.CIFARLitModule
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.001
+  weight_decay: 0.0
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: min
+  factor: 0.1
+  patience: 10
+
+net:
+  _target_: src.models.components.simple_dense_net.SimpleConvNet
+  conv1_channels: 64
+  conv2_channels: 128
+  conv3_channels: 256
+  fc1_size: 512
+  fc2_size: 256
