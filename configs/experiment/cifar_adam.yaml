@@ -5,7 +5,7 @@
 
 defaults:
   - override /data: cifar.yaml
-  - override /model: mnist.yaml
+  - override /model: cifar.yaml
   - override /trainer: gpu.yaml
 
 # all parameters below will be merged with parameters from default configurations set above

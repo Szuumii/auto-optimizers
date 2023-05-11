@@ -14,9 +14,4 @@ scheduler:
   patience: 10
 
 net:
-  _target_: src.models.components.simple_dense_net.SimpleConvNet
-  conv1_channels: 64
-  conv2_channels: 128
-  conv3_channels: 256
-  fc1_size: 512
-  fc2_size: 256
+  _target_: src.models.components.cifar_net.CIFARResnet18
