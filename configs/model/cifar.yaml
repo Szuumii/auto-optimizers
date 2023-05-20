@@ -6,13 +6,7 @@ optimizer:
   lr: 0.001
   weight_decay: 0.0
 
-scheduler:
-  null
-  # _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
-  # _partial_: true
-  # mode: min
-  # factor: 0.1
-  # patience: 10
+scheduler: null
 
 net:
   _target_: src.models.components.cifar_net.CIFARResnet18

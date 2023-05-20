@@ -29,6 +29,3 @@ model:
     eps: 0.001
     initial_accumulator: 0.000001
     weight_decay: 0.0
-
-data:
-  batch_size: 64
