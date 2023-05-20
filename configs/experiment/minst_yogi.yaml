@@ -17,12 +17,12 @@ seed: 1289037
 
 trainer:
   min_epochs: 10
-  max_epochs: 5
+  max_epochs: 10
   gradient_clip_val: 0.5
 
 model:
   optimizer:
-    _target_: torch_optimizers.Yogi
+    _target_: torch_optimizer.Yogi
     _partial_: true
     lr: 0.001
     betas: [0.9, 0.999]
