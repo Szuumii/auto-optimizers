@@ -8,7 +8,7 @@ defaults:
   - model: mnist.yaml
   - callbacks: default.yaml
   - logger: "wandb.yaml"
-  - trainer: default.yaml
+  - trainer: gpu.yaml
   - paths: default.yaml
   - extras: default.yaml
   - hydra: default.yaml
