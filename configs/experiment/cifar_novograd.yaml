@@ -1,0 +1,32 @@
+# @package _global_
+
+# to execute this experiment run:
+# python train.py experiment=minst_adam
+
+defaults:
+  - override /data: cifar.yaml
+  - override /model: cifar.yaml
+  - override /trainer: gpu.yaml
+
+# all parameters below will be merged with parameters from default configurations set above
+# this allows you to overwrite only specified parameters
+
+tags: ["cifar", "simple_conv_net"]
+
+seed: 24541251
+
+trainer:
+  min_epochs: 10
+  max_epochs: 60
+  gradient_clip_val: 0.5
+
+model:
+  optimizer:
+    _target_: torch_optimizer.NovoGrad
+    _partial_: true
+    lr: 0.001
+    betas: [0.9, 0.999]
+    eps: 0.00000001
+    weight_decay: 0.0
+    grad_averaging: False
+    amsgrad: False
