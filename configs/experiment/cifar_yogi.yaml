@@ -4,27 +4,30 @@
 # python train.py experiment=minst_adam
 
 defaults:
-  - override /data: mnist.yaml
-  - override /model: mnist.yaml
+  - override /data: cifar.yaml
+  - override /model: cifar.yaml
   - override /trainer: gpu.yaml
 
 # all parameters below will be merged with parameters from default configurations set above
 # this allows you to overwrite only specified parameters
 
-tags: ["mnist", "simple_dense_net"]
+tags: ["cifar", "simple_conv_net"]
 
-seed: 1289037
+seed: 24541251
 
 trainer:
   min_epochs: 10
-  max_epochs: 5
+  max_epochs: 60
   gradient_clip_val: 0.5
 
 model:
   optimizer:
-    _target_: torch.optim.Adam
+    _target_: torch_optimizers.Yogi
     _partial_: true
     lr: 0.001
+    betas: [0.9, 0.999]
+    eps: 0.001
+    initial_accumulator: 0.000001
     weight_decay: 0.0
 
 data:
