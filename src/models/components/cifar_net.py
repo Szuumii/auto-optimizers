@@ -6,11 +6,17 @@ class CIFARResnet18(nn.Module):
     def __init__(self):
         super().__init__()
 
-        self.model = resnet18(pretrained=False, num_classes=100)
+        self.model = resnet18(pretrained=True)
+
         self.model.conv1 = nn.Conv2d(
             3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
         )
-        self.model.maxpool = nn.Identity()
+
+        for param in self.model.parameters():
+            param.requires_grad = False
+
+        num_features = self.model.fc.in_features
+        self.model.fc = nn.Linear(num_features, 100)
 
     def forward(self, x):
         return self.model(x)
