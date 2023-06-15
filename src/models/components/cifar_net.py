@@ -8,10 +8,6 @@ class CIFARResnet18(nn.Module):
 
         self.model = resnet18(pretrained=True)
 
-        self.model.conv1 = nn.Conv2d(
-            3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False
-        )
-
         for param in self.model.parameters():
             param.requires_grad = False
 

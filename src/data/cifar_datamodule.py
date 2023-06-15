@@ -25,11 +25,10 @@ class CIFARDataModule(LightningDataModule):
         # data transformations
         self.transforms = transforms.Compose(
             [
-                transforms.ColorJitter(brightness=0.3, contrast=0.3, saturation=0.3, hue=0.1),
-                transforms.RandomHorizontalFlip(p=0.4),
-                transforms.RandomVerticalFlip(p=0.4),
-                transforms.RandomRotation(15),
-                transforms.RandomCrop(32, padding=4),
+                transforms.Resize((224, 224)),
+                transforms.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1, hue=0.1),
+                transforms.RandomHorizontalFlip(p=0.2),
+                transforms.RandomVerticalFlip(p=0.2),
                 transforms.ToTensor(),
                 transforms.Normalize(mean=[0.5071, 0.4865, 0.4409], std=[0.2673, 0.2564, 0.2762]),
             ]
